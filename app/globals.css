@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --color-navy: #0B1F3A;
+  --color-navy-2: #132A4D;
+  --color-blue: #3E63DD;
+  --color-blue-soft: #EAF0FF;
+  --color-teal: #12A594;
+  --color-teal-soft: #EFFAF8;
+  --color-amber: #E8A33D;
+  --color-amber-soft: #FEF6E9;
+  --color-bg: #F7F8FA;
+  --color-card: #FFFFFF;
+  --color-ink: #14181F;
+  --color-muted: #5B6472;
+  --color-line: #E4E7EC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.container-page {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+/* Orbit thread that runs down the page connecting sections */
+.orbit-rail {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, transparent, var(--color-line) 10%, var(--color-line) 90%, transparent);
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-fade-up { animation: none; }
+}
