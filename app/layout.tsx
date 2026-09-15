@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileCtaBar from "@/components/MobileCtaBar";
+import StructuredData from "@/components/StructuredData";
 
 const display = localFont({
   src: "../public/fonts/PlusJakartaSans-Variable.ttf",
@@ -20,9 +21,9 @@ const body = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Atomic Learner - Personalized Cambridge & Edexcel Tutoring",
+  title: "Atomic Learner - Cambridge & Edexcel Tutor in Kalubowila, Colombo",
   description:
-    "Personalized Cambridge and Edexcel O/L & A/L tutoring in Mathematics, ICT and Sciences, with diagnostic assessments, structured learning plans and regular parent progress updates.",
+    "Personalized Cambridge and Edexcel O/L & A/L tutoring near Kalubowila, Dehiwala, Mount Lavinia, Wellawatte and Nugegoda. One dedicated teacher, diagnostic assessments, structured learning plans and monthly parent progress updates.",
 };
 
 export default function RootLayout({
@@ -42,6 +43,7 @@ export default function RootLayout({
       }
     >
       <body className="antialiased pb-[74px] md:pb-0">
+        <StructuredData />
         <Header />
         {children}
         <Footer />

@@ -369,7 +369,8 @@ export default function Home() {
             </h2>
             <p className="text-[16.5px] text-muted">
               All sessions currently take place at the private teaching space in
-              Kalubowila.
+              Kalubowila, easily reached from Dehiwala, Mount Lavinia,
+              Wellawatte and Nugegoda.
             </p>
           </div>
 
@@ -384,7 +385,8 @@ export default function Home() {
             <p className="text-muted text-[15.5px] mb-6">
               All lessons are conducted at the teacher&apos;s private teaching
               space in Kalubowila, a quiet, consistent environment designed for
-              focused, one-to-one learning.
+              focused, one-to-one learning. Students regularly travel in from
+              Dehiwala, Mount Lavinia, Wellawatte and Nugegoda.
             </p>
             <ul className="space-y-3 mb-7">
               {[
