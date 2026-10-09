@@ -8,6 +8,7 @@ export default function StructuredData() {
     url:
       process.env.NEXT_PUBLIC_SITE_URL ?? "https://atomiclearnerlk.vercel.app",
     areaServed: [
+      "Sri Lanka","Online worldwide",
       {
         "@type": "Place",
         name: "Kalubowila",

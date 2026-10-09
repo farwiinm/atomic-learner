@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import StructuredData from "@/components/StructuredData";
+import Analytics from "@/components/Analytics";
+import ClassLinks from "@/components/ClassLinks";
 
 const display = localFont({
   src: "../public/fonts/PlusJakartaSans-Variable.ttf",
@@ -47,9 +49,11 @@ export default function RootLayout({
     >
       <body className="antialiased pb-[74px] md:pb-0">
         <StructuredData />
+        <Analytics/>
         <Header />
         {children}
         <Footer />
+        <ClassLinks/>
         <MobileCtaBar />
       </body>
     </html>

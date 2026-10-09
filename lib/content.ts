@@ -29,22 +29,8 @@ export const subjects = [
   },
 ] as const;
 
-export const pricing = {
-  ol: [
-    { subject: "Mathematics", amount: 5200 },
-    { subject: "ICT", amount: 5200 },
-    { subject: "Physics", amount: 5500 },
-    { subject: "Chemistry", amount: 5500 },
-    { subject: "Biology", amount: 5500 },
-  ],
-  al: [
-    { subject: "Mathematics", amount: 6300 },
-    { subject: "ICT", amount: 6300 },
-    { subject: "Physics", amount: 6600 },
-    { subject: "Chemistry", amount: 6600 },
-    { subject: "Biology", amount: 6600 },
-  ],
-} as const;
+export const pricing = { ol: 2500, al: 3500 };
+export const sessionLength = { online: "1.5 hours", physical: "2 hours" };
 
 export const processStages = [
   {
