@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "./Button";
-import { pricing } from "@/lib/content";
+import { pricing, sessionLength } from "@/lib/content";
 
 const syllabusOptions = ["Cambridge", "Edexcel"];
 const levelOptions = ["O/L", "A/L"];
@@ -14,10 +14,9 @@ const subjectOptions = [
   "Biology",
 ];
 
-function getRate(level: string | null, subject: string | null): number | null {
-  if (!level || !subject) return null;
-  const table = level === "A/L" ? pricing.al : pricing.ol;
-  return table.find((row) => row.subject === subject)?.amount ?? null;
+function getRate(level: string | null): number | null {
+  if (!level) return null;
+  return level === "A/L" ? pricing.al : pricing.ol;
 }
 
 function ChipGroup({
@@ -109,14 +108,17 @@ export default function PathBuilder() {
             <span className="text-navy font-semibold">Diagnose</span> →{" "}
             <span className="text-navy font-semibold">Personalize</span>
           </div>
-          <div className="flex justify-between items-baseline mb-5 px-4 py-3.5 bg-bg rounded-xl">
-            <span className="text-muted text-[13.5px]">
-              Standard session rate
-            </span>
-            <span className="text-[20px] font-extrabold text-navy">
-              LKR {getRate(level, subject)?.toLocaleString()}{" "}
-            </span>
-          </div>
+          <div className="mb-5 px-4 py-3.5 bg-bg rounded-xl">
+  <div className="flex justify-between items-baseline">
+    <span className="text-muted text-[13.5px]">Session rate</span>
+    <span className="text-[20px] font-extrabold text-navy">
+      LKR {getRate(level)?.toLocaleString("en-US")}
+    </span>
+  </div>
+  <div className="text-[12.5px] text-muted mt-1.5">
+    Online {sessionLength.online} or in person {sessionLength.physical}. Same price.
+  </div>
+</div>
           <Button href="/book" variant="teal" full>
             Discuss This Learning Path
           </Button>

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
-
-import type { Metadata } from "next";
 import BookedConversion from "@/components/BookedConversion";
 
 export const metadata: Metadata = { robots: { index: false, follow: false } };
