@@ -31,7 +31,6 @@ export default function PricingExplorer() {
       </div>
 
       <div className="grid gap-5 md:grid-cols-2 max-w-3xl">
-        {/* Online (primary) */}
         <div className="bg-navy text-white rounded-2xl p-7 flex flex-col">
           <div className="text-[12.5px] font-semibold uppercase tracking-wide text-white/70 mb-3">
             Online, one to one
@@ -41,8 +40,7 @@ export default function PricingExplorer() {
             <span className="text-[14px] font-medium text-white/70"> / session</span>
           </div>
           <p className="text-[14.5px] text-white/80 mt-3 mb-6">
-            {sessionLength.online} per session. Live with Ms. Fathima, from anywhere in
-            the world.
+            {sessionLength.online} per session. Live, from anywhere in the world.
           </p>
           <div className="mt-auto">
             <Button href="/book" variant="teal" full>
@@ -51,7 +49,6 @@ export default function PricingExplorer() {
           </div>
         </div>
 
-        {/* In person */}
         <div className="bg-white border border-line rounded-2xl p-7 flex flex-col">
           <div className="text-[12.5px] font-semibold uppercase tracking-wide text-muted mb-3">
             In person, Kalubowila
@@ -61,7 +58,7 @@ export default function PricingExplorer() {
             <span className="text-[14px] font-medium text-muted"> / session</span>
           </div>
           <p className="text-[14.5px] text-muted mt-3 mb-6">
-            {sessionLength.physical} per session, one to one. Same price as online.
+            {sessionLength.physical} per session, one to one.
           </p>
           <div className="mt-auto">
             <Link

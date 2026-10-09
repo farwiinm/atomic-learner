@@ -116,7 +116,7 @@ export default function PathBuilder() {
     </span>
   </div>
   <div className="text-[12.5px] text-muted mt-1.5">
-    Online {sessionLength.online} or in person {sessionLength.physical}. Same price.
+    Online {sessionLength.online} or in person {sessionLength.physical}.
   </div>
 </div>
           <Button href="/book" variant="teal" full>

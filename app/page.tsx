@@ -1,459 +1,211 @@
 import { Button } from "@/components/Button";
-import PathBuilder from "@/components/PathBuilder";
-import DiagnosticDemo from "@/components/DiagnosticDemo";
-import PlanPreview from "@/components/PlanPreview";
 import PricingExplorer from "@/components/PricingExplorer";
-import SectionConnector from "@/components/SectionConnector";
 import FaqAccordion from "@/components/FaqAccordion";
-import { processStages, subjects } from "@/lib/content";
-import { CheckCircle2, GraduationCap, Clock3, MapPin } from "lucide-react";
+import FelloPreview from "@/components/FelloPreview";
+import { pricing, sessionLength } from "@/lib/content";
+import { CheckCircle2 } from "lucide-react";
+
+const steps = [
+  ["Talk", "A short call about your goals"],
+  ["Diagnose", "Find the exact gaps"],
+  ["Plan", "A written plan, gaps first"],
+  ["Learn", "1:1 sessions with notes and practice"],
+  ["Review", "A monthly update for parents"],
+];
+
+const subjectList = ["Mathematics", "ICT", "Physics", "Chemistry", "Biology"];
+
+function lkr(n: number) {
+  return `LKR ${n.toLocaleString("en-US")}`;
+}
 
 export default function Home() {
   return (
     <main>
       {/* ============ HERO ============ */}
-      <section className="pt-16 pb-14 md:pt-20 md:pb-16 overflow-hidden">
-        <div className="container-page grid md:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+      <section className="pt-14 pb-14 md:pt-20 md:pb-20 overflow-hidden">
+        <div className="container-page grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-14 items-center">
           <div>
             <div className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-blue mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-teal" />
               Cambridge &amp; Edexcel · O/L &amp; A/L
             </div>
-            <h1 className="text-[34px] md:text-[54px] font-extrabold leading-[1.08] text-navy mb-5">
-              A Learning Plan Built Around One Student.
+            <h1 className="text-[34px] md:text-[52px] font-extrabold leading-[1.08] text-navy mb-5">
+              Maths and Science tutoring, planned around one student.
             </h1>
-            <p className="text-[18px] text-muted max-w-[480px] mb-8">
-              Personalized tutoring in Mathematics, ICT and the Sciences, with a
-              diagnostic assessment, a structured learning plan, and regular
-              parent progress updates, all from one teacher.
+            <p className="text-[18px] text-muted max-w-[500px] mb-8">
+              Atomic Learner is a STEM academy for O/L and A/L students. Every
+              student starts with a diagnostic, then learns from a plan built
+              around it.
             </p>
-            <div className="flex flex-wrap gap-3.5 mb-9">
-              <Button href="/book">Book a Parent-Teacher Call</Button>
-              <Button href="#how" variant="secondary">
-                See How It Works
+            <div className="flex flex-wrap gap-3.5 mb-8">
+              <Button href="/book">Book a Free Intro Call</Button>
+              <Button href="#pricing" variant="secondary">
+                See Pricing
               </Button>
             </div>
-            <div className="flex flex-wrap gap-5 text-[13.5px] text-muted">
-              <span className="flex items-center gap-1.5">
-                <GraduationCap size={15} className="text-teal shrink-0" /> MSc
-                Big Data Analytics
-              </span>
-              <span className="flex items-center gap-1.5">
-                <GraduationCap size={15} className="text-teal shrink-0" /> BSc
-                Biotechnology
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock3 size={15} className="text-amber shrink-0" /> 7+ Years
-                Teaching
-              </span>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-muted">
+              {["1:1 sessions", "Diagnostic first", "Monthly parent updates"].map((t) => (
+                <span key={t} className="flex items-center gap-1.5">
+                  <CheckCircle2 size={16} className="text-teal shrink-0" />
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
 
-          <PathBuilder />
+          <div className="grid gap-4">
+            <div className="bg-navy text-white rounded-[22px] p-6">
+              <div className="flex items-baseline justify-between mb-1">
+                <div className="text-[18px] font-bold">Online</div>
+                <div className="text-[13px] text-white/70">{sessionLength.online} sessions</div>
+              </div>
+              <p className="text-[14px] text-white/70 mb-4 m-0">
+                Live, one to one. Students in Sri Lanka and abroad.
+              </p>
+              <div className="flex gap-6 text-[15px]">
+                <span>O/L <b>{lkr(pricing.ol)}</b></span>
+                <span>A/L <b>{lkr(pricing.al)}</b></span>
+              </div>
+            </div>
+            <div className="bg-white border border-line rounded-[22px] p-6">
+              <div className="flex items-baseline justify-between mb-1">
+                <div className="text-[18px] font-bold text-navy">In person</div>
+                <div className="text-[13px] text-muted">{sessionLength.physical} sessions</div>
+              </div>
+              <p className="text-[14px] text-muted mb-4 m-0">
+                One to one at our teaching space in Kalubowila.
+              </p>
+              <div className="flex gap-6 text-[15px] text-navy">
+                <span>O/L <b>{lkr(pricing.ol)}</b></span>
+                <span>A/L <b>{lkr(pricing.al)}</b></span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ============ TRUST STRIP ============ */}
-      <div className="border-y border-line py-6">
-        <div className="container-page flex flex-wrap justify-center items-center gap-x-9 gap-y-3 text-[13.5px] font-semibold text-muted">
-          {[
-            "Cambridge",
-            "Edexcel",
-            "O/L",
-            "A/L",
-            "MSc Big Data Analytics",
-            "BSc Biotechnology",
-            "7+ Years Teaching",
-          ].map((item, i) => (
-            <span key={item} className="flex items-center gap-9">
-              {item}
-              {i < 6 && <span className="w-px h-4 bg-line hidden sm:block" />}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ============ THE PROBLEM ============ */}
-      <section className="py-20 md:py-24">
+      {/* ============ HOW IT WORKS ============ */}
+      <section className="py-16 md:py-20 scroll-mt-20" id="how">
         <div className="container-page">
-          <div className="max-w-[640px] mb-12">
-            <h2 className="text-[23px] sm:text-[26px] md:text-[36px] font-extrabold text-navy leading-tight">
-              More tuition isn&apos;t always the answer. Better direction is.
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              {
-                title: "Attending Classes, Still Struggling",
-                body: "New topics keep coming while earlier knowledge gaps stay unresolved.",
-              },
-              {
-                title: "No Clear Starting Point",
-                body: "Parents can sense there's a problem but can't pin down exactly where it begins.",
-              },
-              {
-                title: "Generic Lesson Plans",
-                body: "A standard class timetable rarely adapts to one student's specific strengths and weaknesses.",
-              },
-              {
-                title: "Little Parent Visibility",
-                body: "You know how many classes were attended, but not what academic progress actually happened.",
-              },
-            ].map((card) => (
-              <div
-                key={card.title}
-                className="bg-card border border-line rounded-[18px] p-6"
-              >
-                <h3 className="text-[16.5px] font-bold text-navy mb-2.5">
-                  {card.title}
-                </h3>
-                <p className="text-[14.5px] text-muted m-0">{card.body}</p>
+          <h2 className="text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-10 max-w-[600px]">
+            Five steps, the same for every student.
+          </h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-4">
+            {steps.map(([title, line], i) => (
+              <div key={title} className="bg-card border border-line rounded-[18px] p-5">
+                <div className="text-[13px] font-bold text-teal mb-2">Step {i + 1}</div>
+                <h3 className="text-[17px] font-bold text-navy mb-1.5">{title}</h3>
+                <p className="text-[14px] text-muted m-0">{line}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      <SectionConnector
-        label="Here's the shift"
-        text="instead of another generic class, Atomic Learner runs every student through the same five-stage process, starting by finding out exactly where they stand."
-      />
-
-      {/* ============ THE METHOD ============ */}
-      <section className="py-20 md:py-24 scroll-mt-20" id="how">
-        <div className="container-page">
-          <div className="max-w-[640px] mb-14">
-            <h2 className="text-[23px] sm:text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-3.5">
-              One Clear Process. Personalized Around the Student.
-            </h2>
-            <p className="text-[16.5px] text-muted">
-              Every student moves through the same five stages. The plan inside
-              each one is built specifically for them.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-5 gap-8 md:gap-4 relative">
-            <div className="hidden md:block absolute top-[22px] left-[10%] right-[10%] h-0.5 bg-line" />
-            {processStages.map((stage) => (
-              <div key={stage.n} className="relative z-10">
-                <div className="w-11 h-11 rounded-full bg-white border-2 border-line flex items-center justify-center font-bold text-muted text-[14px] mb-4.5">
-                  {stage.n}
-                </div>
-                <h3 className="text-[15.5px] font-bold text-navy mb-2">
-                  {stage.title}
-                </h3>
-                <p className="text-[13.5px] text-muted m-0">
-                  {stage.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <SectionConnector
-        label="Stage 02 in practice"
-        text="the diagnostic isn't a generic quiz. It's a short, targeted assessment built for the exact subject and level, designed to reveal where the real gaps are."
-      />
-
-      {/* ============ DIAGNOSTIC DEMO ============ */}
-      <section className="py-20 md:py-24">
-        <div className="container-page">
-          <div className="max-w-[640px] mb-12">
-            <h2 className="text-[23px] sm:text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-3.5">
-              Don&apos;t Guess Where the Problem Is. Find It.
-            </h2>
-            <p className="text-[16.5px] text-muted">
-              A short preview of how a diagnostic assessment works.
-            </p>
-          </div>
-          <DiagnosticDemo />
-        </div>
-      </section>
-
-      <SectionConnector
-        label="Stage 03 in practice"
-        text="every diagnostic feeds directly into a personalized learning plan, reviewed by the teacher, then delivered to the parent as a PDF."
-      />
-
-      {/* ============ PLAN PREVIEW ============ */}
-      <section className="py-20 md:py-24 scroll-mt-20" id="plan">
-        <div className="container-page">
-          <div className="max-w-[640px] mb-12">
-            <h2 className="text-[23px] sm:text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-3.5">
-              Know Exactly What You&apos;re Working On.
-            </h2>
-            <p className="text-[16.5px] text-muted">
-              Every plan is delivered as a PDF after the diagnostic. Here&apos;s
-              an illustrative sample.
-            </p>
-          </div>
-          <PlanPreview />
-        </div>
-      </section>
-
-      <SectionConnector
-        label="Stage 04, always"
-        text="one teacher carries the plan into every session. The same person who diagnosed the gaps is the one closing them."
-      />
 
       {/* ============ SUBJECTS ============ */}
-      <section className="py-20 md:py-24 scroll-mt-20" id="subjects">
+      <section className="py-16 md:py-20 scroll-mt-20" id="subjects">
         <div className="container-page">
-          <div className="max-w-[640px] mb-12">
-            <h2 className="text-[23px] sm:text-[26px] md:text-[36px] font-extrabold text-navy leading-tight">
-              Focused Support Across Key Subjects
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {subjects.map((s) => (
-              <div
-                key={s.slug}
-                className="bg-card border border-line rounded-[18px] p-5.5"
+          <h2 className="text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-3">
+            STEM subjects, O/L and A/L.
+          </h2>
+          <p className="text-[16.5px] text-muted mb-8">Cambridge and Edexcel.</p>
+          <div className="flex flex-wrap gap-3">
+            {subjectList.map((s) => (
+              <span
+                key={s}
+                className="bg-card border border-line rounded-full px-6 py-3 text-[16px] font-semibold text-navy"
               >
-                <h3 className="text-[16px] font-bold text-navy mb-2">
-                  {s.name}
-                </h3>
-                <p className="text-[13px] text-muted m-0 leading-relaxed">
-                  {s.blurb}
-                </p>
-              </div>
+                {s}
+              </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============ ONE TEACHER ============ */}
-      <section className="py-6 md:py-10 scroll-mt-20" id="teacher">
-        <div className="container-page">
-          <div className="bg-navy rounded-[28px] p-10 md:p-14 text-white">
-            <div className="max-w-[640px]">
-              <h2 className="text-[24px] md:text-[32px] font-extrabold mb-3.5">
-                No Hand-Offs. No Tutor Roulette.
-              </h2>
-              <p className="text-white/70 text-[15.5px] mb-6">
-                The teacher who discusses your concerns is the teacher who
-                reviews the diagnostic, creates the plan, teaches the lessons
-                and tracks progress.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {["Talk", "Assess", "Plan", "Teach", "Review"].map(
-                  (step, i, arr) => (
-                    <span key={step} className="flex items-center gap-1.5">
-                      <span className="bg-white/10 px-4 py-2.5 rounded-full text-[13px] font-semibold whitespace-nowrap">
-                        {step}
-                      </span>
-                      {i < arr.length - 1 && (
-                        <span className="text-white/35 text-[13px]">
-                          {"->"}
-                        </span>
-                      )}
-                    </span>
-                  ),
-                )}
-              </div>
-              <div className="mb-2">
-                <span className="text-[17px] font-bold">Ms. Fathima</span>
-              </div>
-              <div className="flex flex-wrap gap-5 text-[13.5px] text-white/75 mb-7">
-                <span>MSc Big Data Analytics</span>
-                <span>BSc Biotechnology</span>
-                <span>7+ Years Teaching Experience</span>
-              </div>
-              <p className="text-white/70 text-[14.5px] max-w-[480px]">
-                An analytical, structured approach, shaped by a background in
-                data analytics and biotechnology, paired with a patient,
-                approachable teaching style suited to students who are still
-                building confidence in a subject.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <SectionConnector
-        label="Stage 05, monthly"
-        text="progress isn't a mystery. Parents get a structured update on what's been covered and what's next."
-      />
-
-      {/* ============ PARENT VISIBILITY ============ */}
-      <section className="py-20 md:py-24">
-        <div className="container-page grid md:grid-cols-2 gap-12 items-center">
+      {/* ============ LEARNING PLATFORM ============ */}
+      <section className="py-16 md:py-20 scroll-mt-20" id="platform">
+        <div className="container-page grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <div>
-            <h2 className="text-[24px] md:text-[32px] font-extrabold text-navy mb-4 leading-tight">
-              You Shouldn&apos;t Have to Guess Whether Progress Is Happening.
+            <div className="text-[13.5px] font-semibold text-blue mb-3">Fello Learner</div>
+            <h2 className="text-[26px] md:text-[34px] font-extrabold text-navy leading-tight mb-4">
+              Notes and practice between sessions.
             </h2>
-            <p className="text-muted text-[15.5px]">
-              Parents receive a monthly progress update by WhatsApp, outlining
-              what&apos;s been covered, current priorities and what comes next.
+            <p className="text-[16.5px] text-muted mb-6 max-w-[460px]">
+              Our learning platform gives every topic a short note, then practice
+              questions with worked solutions. It is being built topic by topic,
+              starting with Maths.
             </p>
-          </div>
-
-          <div>
-            <span className="inline-flex items-center gap-1.5 text-[12.5px] text-amber bg-amber-soft px-3 py-1.5 rounded-full font-semibold mb-3.5">
-              Illustrative Sample
-            </span>
-            <div className="bg-white border border-line rounded-[20px] overflow-hidden max-w-[400px]">
-              <div className="px-6.5 py-5.5 border-b border-line flex justify-between items-start">
-                <div>
-                  <h4 className="text-[16px] text-navy mb-1 font-bold">
-                    Monthly Learning Snapshot
-                  </h4>
-                  <div className="text-[12.5px] text-muted">
-                    Mathematics · Cambridge O/L
-                  </div>
-                </div>
-                <span className="text-[11.5px] font-bold text-blue bg-blue-soft px-2.5 py-1 rounded-lg whitespace-nowrap">
-                  August
-                </span>
-              </div>
-              <div className="px-6.5 py-5.5 space-y-4">
-                <div>
-                  <div className="text-[11.5px] font-bold uppercase tracking-wide text-muted mb-2">
-                    Covered This Month
-                  </div>
-                  {[
-                    "Algebraic manipulation",
-                    "Simultaneous equations",
-                    "Functions introduction",
-                  ].map((i) => (
-                    <div
-                      key={i}
-                      className="text-[14px] pl-4 relative mb-1 before:content-[''] before:absolute before:left-0 before:top-[8px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-teal"
-                    >
-                      {i}
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <div className="text-[11.5px] font-bold uppercase tracking-wide text-muted mb-2">
-                    Current Focus
-                  </div>
-                  <div className="text-[14px] pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[8px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-blue">
-                    Graph interpretation
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[11.5px] font-bold uppercase tracking-wide text-muted mb-2">
-                    Needs More Practice
-                  </div>
-                  <div className="text-[14px] pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[8px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-amber">
-                    Word problems
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[11.5px] font-bold uppercase tracking-wide text-muted mb-2">
-                    Next Month
-                  </div>
-                  {["Coordinate geometry", "Timed exam questions"].map((i) => (
-                    <div
-                      key={i}
-                      className="text-[14px] pl-4 relative mb-1 before:content-[''] before:absolute before:left-0 before:top-[8px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-muted"
-                    >
-                      {i}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ LOCATION ============ */}
-      <section className="py-20 md:py-24 scroll-mt-20" id="location">
-        <div className="container-page">
-          <div className="max-w-[640px] mx-auto text-center mb-12">
-            <h2 className="text-[23px] sm:text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-3.5">
-              Where Sessions Take Place
-            </h2>
-            <p className="text-[16.5px] text-muted">
-              All sessions currently take place at the private teaching space in
-              Kalubowila, easily reached from Dehiwala, Mount Lavinia,
-              Wellawatte and Nugegoda.
-            </p>
-          </div>
-
-          <div className="bg-card border border-line rounded-[24px] p-8 md:p-10 max-w-[640px] mx-auto">
-            <div className="inline-flex items-center gap-2 bg-blue-soft text-blue px-3.5 py-1.5 rounded-full text-[13px] font-semibold mb-4.5">
-              <MapPin size={14} />
-              Private Teaching Space, Kalubowila
-            </div>
-            <h3 className="text-[22px] font-extrabold text-navy mb-3">
-              A focused, dedicated space for every session.
-            </h3>
-            <p className="text-muted text-[15.5px] mb-6">
-              All lessons are conducted at the teacher&apos;s private teaching
-              space in Kalubowila, a quiet, consistent environment designed for
-              focused, one-to-one learning. Students regularly travel in from
-              Dehiwala, Mount Lavinia, Wellawatte and Nugegoda.
-            </p>
-            <ul className="space-y-3 mb-7">
-              {[
-                "A quiet, distraction-free environment built for learning",
-                "Consistent study location, every session",
-                "Straightforward for families comfortable travelling to Kalubowila",
-              ].map((b) => (
-                <li key={b} className="flex gap-2.5 items-start text-[14.5px]">
-                  <CheckCircle2
-                    size={18}
-                    className="text-teal shrink-0 mt-0.5"
-                  />
-                  {b}
-                </li>
-              ))}
-            </ul>
-            <div className="bg-bg rounded-xl px-4 py-3.5 text-[13.5px] text-muted mb-6">
-              The exact address is shared privately once a consultation is
-              booked or a session is confirmed.
-            </div>
-            <Button href="/book" full>
-              Explore Kalubowila Classes
+            <Button href="https://fellolearner.com" variant="secondary">
+              Visit Fello Learner
             </Button>
           </div>
+          <FelloPreview />
         </div>
       </section>
 
       {/* ============ PRICING ============ */}
-      <section className="py-20 md:py-24 scroll-mt-20" id="pricing">
+      <section className="py-16 md:py-20 scroll-mt-20" id="pricing">
         <div className="container-page">
-          <div className="max-w-[640px] mb-10">
-            <h2 className="text-[23px] sm:text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-3.5">
-              Transparent Pricing
-            </h2>
-            <p className="text-[16.5px] text-muted">
-              No hidden fees, no &quot;contact us to find out.&quot;
-            </p>
-          </div>
+          <h2 className="text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-8">
+            Pricing, per session.
+          </h2>
           <PricingExplorer />
+          <p className="text-[14.5px] text-muted mt-8 max-w-[620px]">
+            In-person sessions are held in Kalubowila, close to Dehiwala, Mount
+            Lavinia, Wellawatte and Nugegoda. The address is shared when you
+            book.
+          </p>
+        </div>
+      </section>
+
+      {/* ============ ABOUT ============ */}
+      <section className="py-6 md:py-10 scroll-mt-20" id="about">
+        <div className="container-page">
+          <div className="bg-navy rounded-[28px] p-8 md:p-12 text-white">
+            <div className="max-w-[620px]">
+              <h2 className="text-[24px] md:text-[32px] font-extrabold mb-4">
+                A data-driven approach to teaching STEM.
+              </h2>
+              <p className="text-white/75 text-[15.5px] mb-7">
+                Every plan starts from evidence about what a student actually
+                knows, then adjusts as they improve. Teaching is led by Ms.
+                Fathima.
+              </p>
+              <div className="flex flex-wrap gap-2.5">
+                {["MSc Big Data Analytics", "BSc Biotechnology", "7+ years teaching"].map((c) => (
+                  <span key={c} className="bg-white/10 px-4 py-2 rounded-full text-[13.5px] font-semibold">
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ============ FAQ ============ */}
-      <section className="py-20 md:py-24 scroll-mt-20" id="faq">
+      <section className="py-16 md:py-20 scroll-mt-20" id="faq">
         <div className="container-page">
-          <div className="max-w-[640px] mb-10">
-            <h2 className="text-[23px] sm:text-[26px] md:text-[36px] font-extrabold text-navy leading-tight">
-              Frequently Asked Questions
-            </h2>
-          </div>
+          <h2 className="text-[26px] md:text-[36px] font-extrabold text-navy leading-tight mb-8">
+            Questions parents ask.
+          </h2>
           <FaqAccordion />
         </div>
       </section>
 
       {/* ============ FINAL CTA ============ */}
-      <section className="py-20 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="container-page">
-          <div className="bg-gradient-to-br from-navy to-[#152C52] rounded-[28px] px-8 md:px-10 py-16 md:py-20 text-center text-white">
-            <h2 className="text-[26px] md:text-[38px] font-extrabold mb-4">
-              Start With a Conversation, Not a Commitment.
+          <div className="bg-gradient-to-br from-navy to-[#152C52] rounded-[28px] px-8 md:px-10 py-14 md:py-16 text-center text-white">
+            <h2 className="text-[26px] md:text-[36px] font-extrabold mb-3">
+              Start with a short call.
             </h2>
-            <p className="text-white/70 text-[16px] max-w-[480px] mx-auto mb-8">
-              Book a short call with the teacher to discuss your child&apos;s
-              situation, goals and the right next step. No purchase required.
+            <p className="text-white/70 text-[16px] max-w-[440px] mx-auto mb-7">
+              Tell us about your child and the exam. No commitment.
             </p>
             <Button href="/book" variant="inverse">
-              Book a Parent-Teacher Call
+              Book a Free Intro Call
             </Button>
           </div>
         </div>

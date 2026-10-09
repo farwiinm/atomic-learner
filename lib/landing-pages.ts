@@ -111,7 +111,7 @@ export const landingPages: LandingPage[] = [
       "Sri Lankan families overseas whose children sit Cambridge or Edexcel O/L or A/L",
       "Students who have changed schools or countries and have gaps from the move",
       "Parents who want a teacher who knows the local exam style and past paper patterns",
-      "Families who want the same rate as local students, with no overseas surcharge",
+      "Families who want a fixed weekly slot that suits their time zone",
     ],
     topicsHeading: "Subjects available online",
     topics: [
@@ -131,8 +131,8 @@ export const landingPages: LandingPage[] = [
     ],
     faqs: [
       {
-        q: "Is the price different for students outside Sri Lanka?",
-        a: "No. The rate is the same wherever the student lives: LKR 2,500 per session for O/L and LKR 3,500 per session for A/L.",
+        q: "What does it cost for students outside Sri Lanka?",
+        a: "LKR 2,500 per session for O/L and LKR 3,500 per session for A/L. Online sessions are 1.5 hours.",
       },
       {
         q: "Can classes be at a time that suits our country?",
@@ -184,7 +184,7 @@ export const landingPages: LandingPage[] = [
     approachHeading: "What a two-hour in-person session looks like",
     approach: [
       "The first part of the session reviews the work set last time. The middle is a new topic taught step by step, followed by questions of increasing difficulty. The last part is exam-style practice, so the student leaves having used what they learned.",
-      "Because the price is the same online and in person, the choice comes down to which format your child learns best in. Many students start in person and move online during exam season, or the other way round.",
+      "The choice comes down to which format your child learns best in. Many students start in person and move online during exam season, or the other way round.",
     ],
     faqs: [
       {
@@ -201,7 +201,7 @@ export const landingPages: LandingPage[] = [
       },
       {
         q: "Can my child switch between in person and online?",
-        a: "Yes. The rate is the same, so you can switch when it suits you, for example when travel is difficult near exams.",
+        a: "Yes. You can switch when it suits you, for example when travel is difficult near exams.",
       },
       {
         q: "Is it group tuition?",
@@ -317,7 +317,7 @@ export const landingPages: LandingPage[] = [
     approachHeading: "Practical, not just theory",
     approach: [
       "Ms. Fathima holds an MSc in Big Data Analytics and has worked in the IT industry, so examples come from how these tools are really used. Students see why a spreadsheet formula or a database design works, not only the steps to copy.",
-      "Online sessions are 1.5 hours and in-person sessions are 2 hours, at the same rate: LKR 2,500 per session for O/L and LKR 3,500 per session for A/L.",
+      "Online sessions are 1.5 hours and in-person sessions are 2 hours. The rate is LKR 2,500 per session for O/L and LKR 3,500 per session for A/L.",
     ],
     faqs: [
       {

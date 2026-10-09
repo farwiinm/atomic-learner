@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { landingBySlug, type LandingPage } from "@/lib/landing-pages";
+import { articles } from "@/lib/articles";
 import { pricing, sessionLength } from "@/lib/content";
 
 const NAVY = "text-[#0B1F3A]";
@@ -89,8 +90,7 @@ export default function LandingPageView({
                 <span className={`ml-2 text-base font-medium ${MUTED}`}>per session</span>
               </p>
               <p className={`mt-3 text-sm ${MUTED}`}>
-                Online {sessionLength.online} or in person {sessionLength.physical}. Same price
-                either way. One to one.
+                Online {sessionLength.online}, in person {sessionLength.physical}. One to one.
               </p>
             </div>
           ))}
@@ -192,6 +192,27 @@ export default function LandingPageView({
           })}
         </div>
       </section>
+
+      {/* Related guides */}
+      {articles.some((a) => a.landing === page.slug) ? (
+        <section className="mx-auto max-w-5xl px-5 pb-12">
+          <h2 className={`text-lg font-semibold ${NAVY}`}>Study guides</h2>
+          <ul className="mt-4 space-y-3">
+            {articles
+              .filter((a) => a.landing === page.slug)
+              .map((a) => (
+                <li key={a.slug}>
+                  <Link
+                    href={`/resources/${a.slug}`}
+                    className="text-base font-medium text-[#0B1F3A] underline-offset-4 hover:underline"
+                  >
+                    {a.title}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </section>
+      ) : null}
 
       {/* Final CTA */}
       <section className="mx-auto max-w-5xl px-5 pb-20">
