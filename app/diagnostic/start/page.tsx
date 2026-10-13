@@ -3,7 +3,7 @@ import StartAssessmentForm from "@/components/StartAssessmentForm";
 import { AlertCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Start Diagnostic Assessment | Atomic Learner",
+  title: "Start Diagnostic Assessment | Tandem Learner",
   robots: { index: false, follow: false },
 };
 
@@ -29,8 +29,8 @@ export default async function StartDiagnosticPage({
       <div className="container-page max-w-[560px]">
         <h1 className="text-[28px] font-extrabold text-navy mb-3">Start Your Diagnostic Assessment</h1>
         <p className="text-muted text-[15.5px] mb-9">
-          Choose the syllabus, level and subject to begin. This normally happens after a
-          Parent-Teacher call, but you&apos;re welcome to preview it here.
+          Choose the syllabus, level and subject to begin. This normally happens after your free trial class,
+          but you&apos;re welcome to preview it here.
         </p>
         {message && (
           <div className="flex gap-3 items-start bg-amber-soft border border-amber/30 rounded-xl px-4 py-3.5 mb-7 text-[14px] text-ink">

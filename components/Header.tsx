@@ -4,15 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./Button";
-
-const navLinks = [
-  { href: "/#how", label: "How It Works" },
-  { href: "/#subjects", label: "Subjects" },
-  { href: "/#platform", label: "Learning Platform" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/#about", label: "About" },
-  { href: "/#faq", label: "FAQ" },
-];
+import { SITE_PAGES } from "@/lib/site";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -40,17 +32,17 @@ export default function Header() {
       >
         <div className="container-page flex items-center justify-between py-4">
           <Link href="/" className="flex items-center gap-2.5 font-display font-bold text-[19px] text-navy">
-            <svg width="28" height="28" viewBox="0 0 30 30" fill="none">
+            <svg width="28" height="28" viewBox="0 0 30 30" fill="none" aria-hidden="true">
               <circle cx="15" cy="15" r="2.6" fill="#0B1F3A" />
               <ellipse cx="15" cy="15" rx="13" ry="6" stroke="#0B1F3A" strokeWidth="1.3" opacity="0.9" />
               <ellipse cx="15" cy="15" rx="13" ry="6" stroke="#0B1F3A" strokeWidth="1.3" opacity="0.55" transform="rotate(60 15 15)" />
               <ellipse cx="15" cy="15" rx="13" ry="6" stroke="#0B1F3A" strokeWidth="1.3" opacity="0.3" transform="rotate(120 15 15)" />
             </svg>
-            Atomic Learner
+            Tandem Learner
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-[14.5px] font-medium">
-            {navLinks.map((link) => (
+            {SITE_PAGES.map((link) => (
               <Link key={link.href} href={link.href} className="text-navy/75 hover:text-navy transition-colors">
                 {link.label}
               </Link>
@@ -58,8 +50,8 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Button href="/book" className="!py-2.5 !px-6 !text-[14.5px]">
-              Book a Call
+            <Button href="/book-free-trial" className="!py-2.5 !px-6 !text-[14.5px]">
+              Book Free Trial
             </Button>
           </div>
 
@@ -74,11 +66,11 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Rendered outside <header>: backdrop-blur on the header would otherwise trap this fixed panel inside it. */}
+      {/* Outside <header>: backdrop-blur on the header would trap this fixed panel inside it. */}
       {open && (
         <div className="md:hidden fixed inset-x-0 bottom-0 top-[65px] z-40 bg-bg overflow-y-auto">
           <nav className="container-page flex flex-col gap-1 pt-6 pb-10">
-            {navLinks.map((link) => (
+            {SITE_PAGES.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -89,8 +81,8 @@ export default function Header() {
               </Link>
             ))}
             <div className="pt-6">
-              <Button href="/book" full onClick={() => setOpen(false)}>
-                Book a Call
+              <Button href="/book-free-trial" full onClick={() => setOpen(false)}>
+                Book Free Trial
               </Button>
             </div>
           </nav>

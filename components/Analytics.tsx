@@ -14,25 +14,26 @@ function send(name: string, params: Record<string, unknown>) {
 }
 
 /**
- * Loads Google Analytics 4 and Vercel Analytics, and tracks key clicks
- * without editing every button:
- *  - cta_click      any link to /book
- *  - contact_click  tel:, mailto: and WhatsApp links
- *  - calendly_scheduled  a booking completed inside the Calendly embed
+ * Loads Google Analytics 4 and Vercel Analytics. Events:
+ *  - cta_click       any link to /book-free-trial
+ *  - contact_click   tel:, mailto: and WhatsApp links
+ *  - form_submitted  conversion 1 (sent from the thank-you page)
+ *  - trial_booked    conversion 2 (a booking finished inside the Calendly embed)
  */
 export default function Analytics() {
   useEffect(() => {
     function onClick(e: MouseEvent) {
-      const target = e.target as Element | null;
-      const a = target?.closest?.("a");
+      const a = (e.target as Element | null)?.closest?.("a");
       if (!a) return;
       const href = a.getAttribute("href") || "";
-      const text = (a.textContent || "").trim().slice(0, 60);
-      const base = { link_text: text, link_url: href, page_path: window.location.pathname };
-
+      const base = {
+        link_text: (a.textContent || "").trim().slice(0, 60),
+        link_url: href,
+        page_path: window.location.pathname,
+      };
       if (href.startsWith("tel:") || href.startsWith("mailto:") || href.includes("wa.me")) {
         send("contact_click", base);
-      } else if (href === "/book" || href.startsWith("/book?") || href.includes("/book#")) {
+      } else if (href.startsWith("/book-free-trial")) {
         send("cta_click", base);
       }
     }
@@ -40,7 +41,12 @@ export default function Analytics() {
     function onMessage(e: MessageEvent) {
       const data = e.data as { event?: string } | null;
       if (data && typeof data === "object" && data.event === "calendly.event_scheduled") {
-        send("calendly_scheduled", { page_path: window.location.pathname });
+        try {
+          sessionStorage.setItem("al_trial_booked", "1");
+        } catch {
+          /* ignore */
+        }
+        send("trial_booked", { method: "calendly_embed", page_path: window.location.pathname });
       }
     }
 
@@ -56,10 +62,7 @@ export default function Analytics() {
     <>
       {GA_ID ? (
         <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
-          />
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
           <Script id="ga-init" strategy="afterInteractive">
             {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
           </Script>

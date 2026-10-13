@@ -15,7 +15,7 @@ export default function PortalLayout({
               href="/portal"
               className="font-extrabold text-navy text-[16px]"
             >
-              Atomic Learner Portal
+              Tandem Learner Portal
             </Link>
             <nav className="flex gap-6 text-[14px] font-medium text-muted">
               <Link href="/portal" className="hover:text-navy">

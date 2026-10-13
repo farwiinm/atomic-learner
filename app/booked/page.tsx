@@ -14,12 +14,10 @@ export default function BookedConfirmationPage() {
           <BookedConversion/>
         </div>
         <h1 className="text-[28px] font-extrabold text-navy mb-4">
-          Your call is booked
+          Your free trial class is booked
         </h1>
         <p className="text-muted text-[15.5px] mb-8">
-          Thank you for booking a Parent-Teacher call. We will contact you at
-          the scheduled time. A confirmation with the details has also been sent
-          to your email.
+          Thank you for booking. We will see you at the scheduled time. A confirmation with the details has also been sent to your email.
         </p>
         <Link href="/" className="text-blue font-semibold text-[15px]">
           Back to homepage

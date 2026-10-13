@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import StructuredData from "@/components/StructuredData";
 import Analytics from "@/components/Analytics";
-import ClassLinks from "@/components/ClassLinks";
+import { SITE_URL } from "@/lib/site";
 
 const display = localFont({
   src: "../public/fonts/PlusJakartaSans-Variable.ttf",
@@ -23,9 +23,15 @@ const body = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Atomic Learner - Cambridge & Edexcel Tutor in Kalubowila, Colombo",
+  metadataBase: new URL(SITE_URL),
+  title: "Tandem Learner | Cambridge & Edexcel Tuition in Colombo",
   description:
-    "Personalized Cambridge and Edexcel O/L & A/L tutoring near Kalubowila, Dehiwala, Mount Lavinia, Wellawatte and Nugegoda. One dedicated teacher, diagnostic assessments, structured learning plans and monthly parent progress updates.",
+    "One-to-one Cambridge and Edexcel (London) tuition for Grades 10 to 13. Online or in person at Kalubowila, Colombo. Book a free trial class.",
+  openGraph: {
+    siteName: "Tandem Learner",
+    type: "website",
+    locale: "en_LK",
+  },
   verification: {
     google: "1rnftlxNeddtg0hl6rX5rKW95GqqklpIUcWIFqPYwcE",
   },
@@ -49,11 +55,10 @@ export default function RootLayout({
     >
       <body className="antialiased pb-[74px] md:pb-0">
         <StructuredData />
-        <Analytics/>
+        <Analytics />
         <Header />
         {children}
         <Footer />
-        <ClassLinks/>
         <MobileCtaBar />
       </body>
     </html>
