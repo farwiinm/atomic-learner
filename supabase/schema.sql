@@ -1,5 +1,5 @@
 -- =========================================================
--- Tandem Learner, Supabase schema
+-- Atomic Learner, Supabase schema
 -- Run this in the Supabase SQL editor (or via `supabase db push`)
 -- =========================================================
 

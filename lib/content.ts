@@ -66,4 +66,4 @@ export const processStages = [
 
 export const CALENDLY_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL ??
-  "https://calendly.com/your-Tandem-learner-handle/parent-call";
+  "https://calendly.com/your-atomic-learner-handle/parent-call";
