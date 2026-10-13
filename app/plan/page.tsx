@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PlanPreview from "@/components/PlanPreview";
 
 export const metadata: Metadata = {
-  title: "Your Learning Plan | Atomic Learner",
+  title: "Your Learning Plan | Tandem Learner",
   robots: { index: false, follow: false },
 };
 

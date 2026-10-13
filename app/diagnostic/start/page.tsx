@@ -3,7 +3,7 @@ import StartAssessmentForm from "@/components/StartAssessmentForm";
 import { AlertCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Start Diagnostic Assessment | Atomic Learner",
+  title: "Start Diagnostic Assessment | Tandem Learner",
   robots: { index: false, follow: false },
 };
 
