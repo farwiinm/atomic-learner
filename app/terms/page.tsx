@@ -1,6 +1,6 @@
 import PageHero from "@/components/PageHero";
 
-export const metadata = { title: "Terms | Atomic Learner" };
+export const metadata = { title: "Terms | Tandem Learner" };
 
 export default function TermsPage() {
   return (
@@ -9,7 +9,7 @@ export default function TermsPage() {
       <section className="py-16 md:py-20">
         <div className="container-page max-w-[720px] text-[15px] text-muted leading-relaxed space-y-4">
           <p>
-            This page is a placeholder. Replace this content with Atomic Learner&apos;s actual
+            This page is a placeholder. Replace this content with Tandem Learner&apos;s actual
             terms of service before launch.
           </p>
         </div>

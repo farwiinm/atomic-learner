@@ -4,7 +4,7 @@ import { getAttempt, getAssessmentBySlug } from "@/lib/diagnostics";
 import AttemptFlow from "@/components/AttemptFlow";
 
 export const metadata: Metadata = {
-  title: "Diagnostic Assessment | Atomic Learner",
+  title: "Diagnostic Assessment | Tandem Learner",
   robots: { index: false, follow: false },
 };
 

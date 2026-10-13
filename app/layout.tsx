@@ -23,7 +23,7 @@ const body = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Atomic Learner - Cambridge & Edexcel Tutor in Kalubowila, Colombo",
+  title: "Tandem Learner - Cambridge & Edexcel Tutor in Kalubowila, Colombo",
   description:
     "Personalized Cambridge and Edexcel O/L & A/L tutoring near Kalubowila, Dehiwala, Mount Lavinia, Wellawatte and Nugegoda. One dedicated teacher, diagnostic assessments, structured learning plans and monthly parent progress updates.",
   verification: {

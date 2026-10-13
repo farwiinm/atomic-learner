@@ -1,4 +1,4 @@
-# Atomic Learner, Next.js App
+# Tandem Learner, Next.js App
 
 Personalized tutoring marketing site, booking, and diagnostic assessment engine.
 
