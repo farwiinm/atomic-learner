@@ -1,7 +1,7 @@
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 
-export const metadata = { title: "Contact | Tandem Learner" };
+export const metadata = { title: "Contact | Atomic Learner" };
 
 export default function ContactPage() {
   return (

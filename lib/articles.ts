@@ -6,8 +6,8 @@ export type Article = {
   description: string;
   category: string;
   published: string; // ISO date
-  /** Page this guide points to at the end */
-  cta: { href: string; label: string };
+  /** Slug of the landing page this article supports */
+  landing: string;
   intro: string;
   sections: Section[];
 };
@@ -20,7 +20,7 @@ export const articles: Article[] = [
       "Studying harder does not fix a weak grade if the real gap is somewhere else. Here are the four most common reasons O/L Maths students stay stuck, and what to do about each.",
     category: "Mathematics",
     published: "2026-10-09",
-    cta: { href: "/fees", label: "See fees" },
+    landing: "online-maths-classes-sri-lanka",
     intro:
       "Many parents tell us the same thing: my child studies for hours, goes to class, does the homework, and still gets a D or an E. It is frustrating for everyone. The answer is almost never laziness. It is usually that the effort is going to the wrong place.",
     sections: [
@@ -85,7 +85,7 @@ export const articles: Article[] = [
       "You do not need to be good at Maths to find where your child is losing marks. This simple five-step method works with the papers and tests you already have.",
     category: "Mathematics",
     published: "2026-10-09",
-    cta: { href: "/fees", label: "See fees" },
+    landing: "online-maths-classes-sri-lanka",
     intro:
       "A learning gap is a topic or skill your child has not fully mastered, and it is usually hiding behind a poor overall mark. The good news is that you can find most gaps yourself in an afternoon, using work that already exists.",
     sections: [
@@ -142,10 +142,10 @@ export const articles: Article[] = [
     slug: "how-to-use-past-papers-properly",
     title: "How to Use Past Papers Properly: Why Doing More Is Not Always Better",
     description:
-      "Past papers are one of the most useful revision tools, but only when used in the right order. Here is how to use topical questions, timed papers and mark schemes to actually improve.",
+      "Past papers are the best revision tool, but only when used in the right order. Here is how to use topical questions, timed papers and mark schemes to actually improve.",
     category: "Exam technique",
     published: "2026-10-09",
-    cta: { href: "/fees", label: "See fees" },
+    landing: "online-maths-classes-sri-lanka",
     intro:
       "Past papers are the closest thing to the real exam, which is why students and parents rely on them. But many students use them badly: they do a full paper early, see a low mark, and lose confidence without learning anything from it. Used well, past papers are one of the fastest ways to improve.",
     sections: [
@@ -205,7 +205,7 @@ export const articles: Article[] = [
       "Not every struggling student needs a tutor, and not every tutor is the right fit. A practical guide for Sri Lankan parents on when to hire help and which questions to ask first.",
     category: "Choosing a tutor",
     published: "2026-10-09",
-    cta: { href: "/fees", label: "See fees" },
+    landing: "online-maths-classes-sri-lanka",
     intro:
       "Tuition is a real cost in time and money, so it is worth being sure before you commit. This guide covers the signs that a tutor will genuinely help, and the questions that separate a good tutor from a busy one.",
     sections: [
@@ -217,7 +217,7 @@ export const articles: Article[] = [
           "The same kinds of mistakes appear in every paper",
           "Confidence is falling, and your child avoids or dreads the subject",
           "There was a disruption, such as a school change, illness or a move abroad",
-          "The class moves too fast for your child to ask questions",
+          "The class moves too fast, or the group is too large for individual questions",
         ],
       },
       {
@@ -238,7 +238,7 @@ export const articles: Article[] = [
           "Will my child get a written plan, and will I see it?",
           "How will I know if it is working? What do you report, and how often?",
           "Do you teach my child's exam board and level regularly?",
-          "Is the class one to one, so your child gets individual attention?",
+          "Is the class one to one or in a group, and how many students are in it?",
           "What happens if we want to pause or stop?",
         ],
       },
@@ -256,7 +256,7 @@ export const articles: Article[] = [
         h: "Why a diagnostic first matters",
         p: [
           "A tutor who starts teaching straight away is guessing where the problem is. A short diagnostic at the start, followed by a plan, means every later session is spent on the right topics. It also gives you something concrete to check progress against.",
-          "At Tandem Learner every student begins this way, and every parent receives a monthly update. If you are comparing options, ask each tutor to explain how they would do the same.",
+          "At Atomic Learner every student begins this way, and every parent receives a monthly update. If you are comparing options, ask each tutor to explain how they would do the same.",
         ],
       },
     ],
@@ -268,7 +268,7 @@ export const articles: Article[] = [
       "An honest comparison of online and in-person one to one tuition for O/L and A/L students, including who each format suits best and how to decide.",
     category: "Choosing a tutor",
     published: "2026-10-09",
-    cta: { href: "/book-free-trial", label: "Book a free trial class" },
+    landing: "olevel-maths-kalubowila",
     intro:
       "Parents often ask which is better. The honest answer is that it depends on the student. Both formats work well when the teaching is good and the student is engaged. Here is how to decide.",
     sections: [
@@ -306,7 +306,7 @@ export const articles: Article[] = [
           "Are you outside Sri Lanka? Online is the practical choice.",
         ],
         p: [
-          "At Tandem Learner you can choose by fit. Online sessions run for 1.5 hours and in-person sessions in Kalubowila run for 2 hours. Many students try one format and switch to the other around exam time, and that is perfectly fine.",
+          "At Atomic Learner you can choose by fit. Online sessions run for 1.5 hours and in-person sessions in Kalubowila run for 2 hours. Many students try one format and switch to the other around exam time, and that is perfectly fine.",
         ],
       },
     ],
@@ -318,7 +318,7 @@ export const articles: Article[] = [
       "A practical weekly revision structure for Cambridge and Edexcel A/L sciences, built on active recall, spaced practice and topical questions rather than rereading notes.",
     category: "Sciences",
     published: "2026-10-09",
-    cta: { href: "/edexcel-tuition-colombo", label: "Edexcel (London) classes" },
+    landing: "alevel-sciences-online",
     intro:
       "A/L Science students often spend long hours rereading notes and highlighting, then feel surprised when the exam asks something unfamiliar. Rereading feels productive because the page looks familiar, but familiarity is not the same as being able to recall and apply an idea. A better plan trains the exact skill the exam tests.",
     sections: [
@@ -376,7 +376,7 @@ export const articles: Article[] = [
       "Many ICT marks are lost through how answers are written, not what the student knows. Learn how to read command words, match answers to marks and apply concepts to scenarios.",
     category: "ICT",
     published: "2026-10-09",
-    cta: { href: "/cambridge-tuition-colombo", label: "Cambridge classes" },
+    landing: "ict-classes-ol-al-online",
     intro:
       "Ask a student what they know about networks or databases and they often explain it well. Then the exam question arrives and the marks do not follow. Usually the issue is the way the answer is built, not a lack of knowledge. The skills below are simple and can be practised.",
     sections: [
@@ -423,6 +423,56 @@ export const articles: Article[] = [
           "Plan the points in two or three words each",
           "Write in clear short sentences with the right terms",
           "Check each mark has a matching point before moving on",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "studying-cambridge-or-edexcel-from-abroad",
+    title: "Studying Cambridge or Edexcel from Abroad: A Guide for Sri Lankan Families",
+    description:
+      "Moved overseas but your child still sits O/L or A/L exams? Here is how to keep a steady study routine across time zones and avoid the gaps that come from a move.",
+    category: "Studying abroad",
+    published: "2026-10-09",
+    landing: "online-classes-for-sri-lankans-abroad",
+    intro:
+      "Moving countries is hard on a student's studies. New school, new syllabus, a different pace, and often a gap in the middle of a course. If your child is still working towards Cambridge or Edexcel O/L or A/L exams, a few practical steps make the transition much smoother.",
+    sections: [
+      {
+        h: "Check the exam details with the school or exam centre",
+        p: [
+          "Confirm which board and level your child is sitting, which subjects, and where and when the exams are taken. Registration rules and deadlines differ by country and centre, so confirm them directly with the school or centre rather than relying on assumptions.",
+        ],
+      },
+      {
+        h: "Find the gaps the move created",
+        p: [
+          "A change of school often means some topics were taught twice and others missed. Do a quick check of each subject against the syllabus and mark which topics are solid, shaky or never covered. Fix the never covered ones first, because they cannot be guessed on the day.",
+        ],
+      },
+      {
+        h: "Choose a time slot that works on both sides",
+        p: [
+          "Sri Lanka is five and a half hours ahead of UTC. That makes the gap about 1.5 hours with Dubai, 2.5 hours behind Singapore, and 5.5 hours ahead of the UK in winter, or 4.5 hours in summer. These differences shift with daylight saving, so recheck when the clocks change.",
+          "Pick one fixed weekly slot and protect it. A regular slot beats a flexible one, because it becomes part of the routine.",
+        ],
+      },
+      {
+        h: "Keep one set of notes",
+        p: [
+          "Students who change schools often end up with notes scattered across notebooks. Keep a single notebook or folder per subject, organised by topic, along with an error log from practice papers. It becomes the main revision resource.",
+        ],
+      },
+      {
+        h: "Keep a parent view of progress",
+        p: [
+          "When your child's teacher is in another country, it is easy to lose sight of progress. Ask for a short written update each month covering what was done, what improved and what comes next.",
+        ],
+      },
+      {
+        h: "Why some families choose a teacher in Sri Lanka",
+        p: [
+          "Teachers who work with Cambridge and Edexcel students in Sri Lanka know how these papers are set and how they are marked, and many families abroad prefer that familiarity. Online classes make it possible from anywhere. At Atomic Learner the rates are LKR 2,500 per session for O/L and LKR 3,500 per session for A/L, one to one, wherever you live.",
         ],
       },
     ],

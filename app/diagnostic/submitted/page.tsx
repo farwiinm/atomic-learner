@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Diagnostic Submitted | Tandem Learner",
+  title: "Diagnostic Submitted | Atomic Learner",
   robots: { index: false, follow: false },
 };
 

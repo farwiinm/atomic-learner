@@ -1,5 +1,5 @@
 -- =========================================================
--- Tandem Learner, Seed data
+-- Atomic Learner, Seed data
 -- Run this AFTER schema.sql, in the Supabase SQL editor.
 --
 -- Seeds:
