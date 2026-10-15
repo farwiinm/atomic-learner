@@ -32,12 +32,10 @@ export default function Header() {
       >
         <div className="container-page flex items-center justify-between py-4">
           <Link href="/" className="flex items-center gap-2.5 font-display font-bold text-[19px] text-navy">
-            <svg width="28" height="28" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-              <circle cx="15" cy="15" r="2.6" fill="#0B1F3A" />
-              <ellipse cx="15" cy="15" rx="13" ry="6" stroke="#0B1F3A" strokeWidth="1.3" opacity="0.9" />
-              <ellipse cx="15" cy="15" rx="13" ry="6" stroke="#0B1F3A" strokeWidth="1.3" opacity="0.55" transform="rotate(60 15 15)" />
-              <ellipse cx="15" cy="15" rx="13" ry="6" stroke="#0B1F3A" strokeWidth="1.3" opacity="0.3" transform="rotate(120 15 15)" />
-            </svg>
+            <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true">
+  <circle cx="22" cy="38" r="17" fill="none" stroke="#0B1F3A" strokeWidth="6" />
+  <circle cx="42" cy="26" r="13" fill="none" stroke="#0B7A75" strokeWidth="6" />
+</svg>
             Tandem Learner
           </Link>
 
