@@ -19,8 +19,8 @@ export const NEARBY_AREAS = ["Dehiwala", "Mount Lavinia", "Nugegoda", "Ratmalana
 /* ---- Contact ---- */
 export const EMAIL = "totandemlearner@gmail.com";
 /* Phone and WhatsApp can be overridden in Vercel; these are the defaults. */
-export const PHONE_DISPLAY = process.env.NEXT_PUBLIC_PHONE || "+94 77 030 7141";
-const waDigits = (process.env.NEXT_PUBLIC_WHATSAPP || "94770307141").replace(/\D/g, ""); // e.g. 94771234567
+export const PHONE_DISPLAY = process.env.NEXT_PUBLIC_PHONE || "+94 77 564 5076";
+const waDigits = (process.env.NEXT_PUBLIC_WHATSAPP || "94775645076").replace(/\D/g, ""); // e.g. 94771234567
 export const PHONE_HREF = PHONE_DISPLAY ? `tel:${PHONE_DISPLAY.replace(/[^\d+]/g, "")}` : "";
 export const WHATSAPP_HREF = waDigits
   ? `https://wa.me/${waDigits}?text=${encodeURIComponent(
