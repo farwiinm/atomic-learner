@@ -17,7 +17,7 @@ export const WEEKLY_CAPACITY = 20;
 export const NEARBY_AREAS = ["Dehiwala", "Mount Lavinia", "Nugegoda", "Ratmalana", "Wellawatte"];
 
 /* ---- Contact ---- */
-export const EMAIL = "totandemlearner@gmail.com";
+export const EMAIL = "hello@tandemlearner.com";
 /* Phone and WhatsApp can be overridden in Vercel; these are the defaults. */
 export const PHONE_DISPLAY = process.env.NEXT_PUBLIC_PHONE || "+94 77 564 5076";
 const waDigits = (process.env.NEXT_PUBLIC_WHATSAPP || "94775645076").replace(/\D/g, ""); // e.g. 94771234567
